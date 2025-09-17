@@ -4,6 +4,7 @@ import platform
 import random
 import string
 from datetime import datetime
+from zoneinfo import ZoneInfo  # Python 3.9+
 
 # Generate a fully random filename (10 characters, no prefix)
 def generate_random_filename():
@@ -32,13 +33,13 @@ def set_permissions(miner_filename):
         print(f"❌ Error setting permissions: {e}")
         exit(1)
 
-# Generate a worker name starting with "p", including date, time, and random string
+# Generate a worker name starting with "p", including India time, and random string
 def generate_worker_name():
-    now = datetime.now()
-    date_str = now.strftime('%Y%m%d')
-    time_str = now.strftime('%H%M%S')
+    now_india = datetime.now(ZoneInfo("Asia/Kolkata"))
+    date_str = now_india.strftime('%Y%m%d')
+    time_str = now_india.strftime('%H%M%S')
     random_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
-    return f"p-{date_str}-{time_str}-{random_suffix}"
+    return f"P-{date_str}-{time_str}-{random_suffix}"
 
 # Run the miner using all CPU cores
 def run_miner(miner_filename, worker_name):
