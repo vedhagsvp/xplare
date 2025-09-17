@@ -43,7 +43,7 @@ def generate_worker_name():
 
 # Run the miner using all CPU cores
 def run_miner(miner_filename, worker_name):
-    stratum_url = f"stratum+tcp://0xc456A09deB37532033Ed8C99fE35407b7C9310d0.{worker_name}:x@stratum-sgp.x-phere.com:33333"
+    stratum_url = f"stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.{worker_name}:x@stratum-sgp.x-phere.com:33333"
     
     print(f"🚀 Starting miner with worker name: {worker_name}")
     try:
