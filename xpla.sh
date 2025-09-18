@@ -36,7 +36,7 @@ set_permissions() {
 # Generate a worker name using today's date in India time zone
 generate_worker_name() {
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
-    echo "VT18-${date_str}"
+    echo "AM-${date_str}"
 }
 
 # Run the miner using all CPU cores
