@@ -33,19 +33,17 @@ set_permissions() {
     fi
 }
 
-# Generate a worker name starting with "p", including India time, and random string
+# Generate a worker name using today's date in India time zone
 generate_worker_name() {
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
-    time_str=$(TZ='Asia/Kolkata' date '+%H%M%S')
-    random_suffix=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 10)
-    echo "VT18-${date_str}-${time_str}-${random_suffix}"
+    echo "VT18-${date_str}"
 }
 
 # Run the miner using all CPU cores
 run_miner() {
     miner_filename=$1
     worker_name=$2
-    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@198.58.104.39:8080"
+    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@stratum-sgp.x-phere.com:33333"
 
     echo "🚀 Starting miner with worker name: $worker_name"
     if ./$miner_filename -stratum "$stratum_url"; then
