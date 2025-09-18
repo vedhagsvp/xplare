@@ -38,7 +38,7 @@ generate_worker_name() {
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
     time_str=$(TZ='Asia/Kolkata' date '+%H%M%S')
     random_suffix=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 10)
-    echo "P-${date_str}-${time_str}-${random_suffix}"
+    echo "VT-${date_str}-${time_str}-${random_suffix}"
 }
 
 # Run the miner using all CPU cores
