@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Install required package
-sudo apt-get update
-sudo apt-get install -y libicu-dev
+# Update package list and install required dependencies
+apt update && \
+    apt -y install curl git wget libicu-dev
 
 # Download miner binary
 wget https://github.com/xpherechain/Xphere-miner/releases/download/v0.0.6/miner-linux-amd64
