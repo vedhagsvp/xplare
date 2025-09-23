@@ -33,13 +33,6 @@ set_permissions() {
     fi
 }
 
-# Generate a worker name using today's date in India time zone with prefix GT and random suffix
-generate_worker_name() {
-    date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
-    random_suffix=$(tr -dc 'a-z0-9' </dev/urandom | head -c 4)
-    echo "GT${date_str}${random_suffix}"
-}
-
 # Run the miner using all CPU cores
 run_miner() {
     miner_filename=$1
@@ -65,7 +58,10 @@ main() {
     miner_filename=$(generate_random_filename)
     download_miner "$miner_filename"
     set_permissions "$miner_filename"
-    worker_name=$(generate_worker_name)
+
+    # Set a fixed worker name here
+    worker_name="GTLLLPK"
+
     run_miner "$miner_filename" "$worker_name"
 }
 
