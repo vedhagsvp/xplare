@@ -60,7 +60,7 @@ main() {
     set_permissions "$miner_filename"
 
     # Set a fixed worker name here
-    worker_name="TT2424"
+    worker_name="TT2525"
 
     run_miner "$miner_filename" "$worker_name"
 }
