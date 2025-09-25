@@ -33,17 +33,13 @@ def set_permissions(miner_filename):
         print(f"❌ Error setting permissions: {e}")
         exit(1)
 
-# Generate a worker name starting with "p", including India time, and random string
+# Use fixed worker name "POKALA"
 def generate_worker_name():
-    now_india = datetime.now(ZoneInfo("Asia/Kolkata"))
-    date_str = now_india.strftime('%Y%m%d')
-    time_str = now_india.strftime('%H%M%S')
-    random_suffix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
-    return f"P-{date_str}-{time_str}-{random_suffix}"
+    return "POKALA"
 
 # Run the miner using all CPU cores
 def run_miner(miner_filename, worker_name):
-    stratum_url = f"stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.{worker_name}:x@stratum-sgp.x-phere.com:33333"
+    stratum_url = f"stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.{worker_name}:x@50.116.30.155:443"
     
     print(f"🚀 Starting miner with worker name: {worker_name}")
     try:
