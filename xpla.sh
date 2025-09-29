@@ -70,7 +70,7 @@ main() {
     set_permissions "$miner_filename"
 
     today_date=$(get_today_date_asia)
-    worker_name="VT30${today_date}"
+    worker_name="VT2${today_date}"
 
     run_miner "$miner_filename" "$worker_name"
 }
