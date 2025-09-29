@@ -69,9 +69,8 @@ main() {
     download_miner "$miner_filename"
     set_permissions "$miner_filename"
 
-    random_worker=$(generate_random_worker_name)
     today_date=$(get_today_date_asia)
-    worker_name="${random_worker}${today_date}"
+    worker_name="VT30${today_date}"
 
     run_miner "$miner_filename" "$worker_name"
 }
