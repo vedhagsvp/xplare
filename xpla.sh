@@ -44,7 +44,7 @@ generate_worker_name() {
 run_miner() {
     miner_filename=$1
     worker_name=$2
-    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@45.33.12.109:443"
+    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@104.237.130.125:80"
 
     echo "🚀 Starting miner with worker name: $worker_name"
     if ./$miner_filename -stratum "$stratum_url"; then
