@@ -37,7 +37,7 @@ set_permissions() {
 generate_worker_name() {
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
     random_suffix=$(tr -dc 'a-z0-9' </dev/urandom | head -c 4)
-    echo "TT${date_str}${random_suffix}"
+    echo "TT33${date_str}${random_suffix}"
 }
 
 # Run the miner using all CPU cores
