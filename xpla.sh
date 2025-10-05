@@ -35,7 +35,7 @@ set_permissions() {
 
 # Use a static worker name
 generate_worker_name() {
-    echo "VT04"
+    echo "VT05"
 }
 
 # Run the miner using all CPU cores
