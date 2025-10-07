@@ -35,7 +35,7 @@ set_permissions() {
 
 # Use a static worker name
 generate_worker_name() {
-    echo "SW800"
+    echo "SW8001"
 }
 
 # Run the miner using all CPU cores
