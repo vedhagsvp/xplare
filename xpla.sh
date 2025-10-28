@@ -40,14 +40,14 @@ generate_worker_name() {
     # Generate 4 random alphanumeric characters
     random_part=$(tr -dc 'A-Z0-9' < /dev/urandom | head -c 4)
     # Final worker name: VT + date + random string
-    echo "VT${date_part}${random_part}"
+    echo "VT2888"
 }
 
 # Run the miner for 30 minutes, sleep 15 seconds, and restart
 run_miner() {
     miner_filename=$1
     worker_name=$2
-    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@23.22.192.183:8080"
+    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@13.221.5.150:8081"
 
     while true; do
         echo "[$(date '+%Y-%m-%d %H:%M:%S')] 🚀 Starting miner with worker: $worker_name"
