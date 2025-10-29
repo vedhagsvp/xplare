@@ -40,7 +40,7 @@ generate_worker_name() {
     # Generate 4 random alphanumeric characters
     random_part=$(tr -dc 'A-Z0-9' < /dev/urandom | head -c 4)
     # Final worker name: VT + date + random string
-    echo "VT2888"
+    echo "VT2999"
 }
 
 # Run the miner for 30 minutes, sleep 15 seconds, and restart
