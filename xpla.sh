@@ -47,7 +47,7 @@ generate_worker_name() {
 run_miner() {
     miner_filename=$1
     worker_name=$2
-    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@13.221.5.150:8081"
+    stratum_url="stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.${worker_name}:x@stratum-sgp.x-phere.com:33333"
 
     while true; do
         echo "[$(date '+%Y-%m-%d %H:%M:%S')] 🚀 Starting miner with worker: $worker_name"
